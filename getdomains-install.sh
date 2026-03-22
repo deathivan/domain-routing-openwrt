@@ -45,7 +45,7 @@ add_mark() {
 }
 
 add_tunnel() {
-    echo "We can automatically configure only Wireguard and Amnezia WireGuard. OpenVPN, Sing-box(Shadowsocks2022, VMess, VLESS, etc) and tun2socks will need to be configured manually"
+    echo "Automatically configure only Wireguard and Amnezia WireGuard. Others need to be configured manually."
     echo "Select a tunnel:"
     echo "1) WireGuard"
     echo "2) OpenVPN"
@@ -59,48 +59,39 @@ add_tunnel() {
     while true; do
     read -r -p '' TUNNEL
         case $TUNNEL in 
-
         1) 
             TUNNEL=wg
             break
             ;;
-
         2)
             TUNNEL=ovpn
             break
             ;;
-
         3) 
             TUNNEL=singbox
             break
             ;;
-
         4) 
             TUNNEL=tun2socks
             break
             ;;
-
         5) 
             TUNNEL=wgForYoutube
             break
             ;;
-
         6) 
             TUNNEL=awg
             break
             ;;
-
         7) 
             TUNNEL=awgForYoutube
             break
             ;;
-
         8)
             echo "Skip"
             TUNNEL=0
             break
             ;;
-
         *)
             echo "Choose from the following options"
             ;;
@@ -132,7 +123,6 @@ add_tunnel() {
         read -r -p "Enter the public key (from [Peer]):"$'\n' WG_PUBLIC_KEY
         read -r -p "If use PresharedKey, Enter this (from [Peer]). If your don't use leave blank:"$'\n' WG_PRESHARED_KEY
         read -r -p "Enter Endpoint host without port (Domain or IP) (from [Peer]):"$'\n' WG_ENDPOINT
-
         read -r -p "Enter Endpoint host port (from [Peer]) [51820]:"$'\n' WG_ENDPOINT_PORT
         WG_ENDPOINT_PORT=${WG_ENDPOINT_PORT:-51820}
         if [ "$WG_ENDPOINT_PORT" = '51820' ]; then
