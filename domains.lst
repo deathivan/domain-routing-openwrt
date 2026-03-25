@@ -1,3 +1,4 @@
+nftset=/cloudfront.net/4#inet#fw4#vpn_domains
 nftset=/frontier.co.uk/4#inet#fw4#vpn_domains
 nftset=/immersivefrontier.com/4#inet#fw4#vpn_domains
 nftset=/frontierstore.net/4#inet#fw4#vpn_domains
