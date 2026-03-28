@@ -7,7 +7,7 @@ Shell скрипт и [роль для Ansible](https://galaxy.ansible.com/ui/st
 - [Статья на хабре](https://habr.com/ru/articles/767464/)
 - [Копия в моём блоге](https://itdog.info/tochechnyj-obhod-blokirovok-po-domenam-na-routere-s-openwrt/)
 
-#Списки исключений
+# Списки исключений
 https://iplist.opencck.org/ru/
 
 # Скрипт для установки
