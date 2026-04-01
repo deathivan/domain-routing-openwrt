@@ -565,7 +565,7 @@ add_dns_resolver() {
 }
 
 add_packages() {
-    for package in curl nano; do
+    for package in curl nano-full; do
         if apk list --installed | grep -q "^$package "; then
             printf "\033[32;1m$package already installed\033[0m\n"
         else
@@ -583,54 +583,6 @@ add_packages() {
 }
 
 add_getdomains() {
-    echo "Choose you country"
-    echo "Select:"
-    echo "1) Russia inside. You are inside Russia"
-    echo "2) Russia outside. You are outside of Russia, but you need access to Russian resources"
-    echo "3) Ukraine. uablacklist.net list"
-    echo "4) Skip script creation"
-
-    while true; do
-    read -r -p '' COUNTRY
-        case $COUNTRY in 
-
-        1) 
-            COUNTRY=russia_inside
-            break
-            ;;
-
-        2)
-            COUNTRY=russia_outside
-            break
-            ;;
-
-        3) 
-            COUNTRY=ukraine
-            break
-            ;;
-
-        4) 
-            echo "Skiped"
-            COUNTRY=0
-            break
-            ;;
-
-        *)
-            echo "Choose from the following options"
-            ;;
-        esac
-    done
-
-    if [ "$COUNTRY" == 'russia_inside' ]; then
-        EOF_DOMAINS=DOMAINS=https://raw.githubusercontent.com/deathivan/domain-routing-openwrt/refs/heads/master/domains.lst
-    elif [ "$COUNTRY" == 'russia_outside' ]; then
-        EOF_DOMAINS=DOMAINS=https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-dnsmasq-nfset.lst
-    elif [ "$COUNTRY" == 'ukraine' ]; then
-        EOF_DOMAINS=DOMAINS=https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Ukraine/inside-dnsmasq-nfset.lst
-    fi
-
-    if [ "$COUNTRY" != '0' ]; then
-        printf "\033[32;1mCreate script /etc/init.d/getdomains\033[0m\n"
 
 cat << EOF > /etc/init.d/getdomains
 #!/bin/sh /etc/rc.common
@@ -638,7 +590,7 @@ cat << EOF > /etc/init.d/getdomains
 START=99
 
 start () {
-    $EOF_DOMAINS
+    DOMAINS=https://raw.githubusercontent.com/deathivan/domain-routing-openwrt/refs/heads/master/domains.lst
 EOF
 cat << 'EOF' >> /etc/init.d/getdomains
     count=0
