@@ -938,6 +938,7 @@ nftset=/telemetr.io/4#inet#fw4#vpn_domains
 nftset=/telesco.pe/4#inet#fw4#vpn_domains
 nftset=/tellapart.com/4#inet#fw4#vpn_domains
 nftset=/tempmail.plus/4#inet#fw4#vpn_domains
+nftset=/temprmail.com/4#inet#fw4#vpn_domains
 nftset=/temu.com/4#inet#fw4#vpn_domains
 nftset=/terraform.io/4#inet#fw4#vpn_domains
 nftset=/tg.dev/4#inet#fw4#vpn_domains
